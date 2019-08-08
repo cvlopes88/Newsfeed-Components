@@ -52,14 +52,14 @@ let menuItems = [
 // }
 
 
-const head = document.querySelector('.header');
-head.appendChild(maxMenu(menuItems));
+const header = document.querySelector('.header');
+header.appendChild(maxMenu(menuItems));
 
 function maxMenu(array){
   const mainMenu = document.createElement('div');
   const ulMenu = document.createElement('ul');
-console.log(mainMenu);
-  // const menuList = document.querySelector('.menu');
+// console.log(mainMenu);
+  // head.appendChild(mainMenu);
 mainMenu.appendChild(ulMenu);
 array.forEach(function(menus) {
   const liItem = document.createElement('li');
@@ -69,14 +69,14 @@ array.forEach(function(menus) {
 
 
 
-mainMenu.classList.add('.menu');
+mainMenu.classList.add('menu');
 
 
 const menuButton = document.querySelector('.menu-button');
 
 menuButton.addEventListener('click', () => {
   mainMenu.classList.toggle('menu--open');
-})
+});
 
 return mainMenu;
 }
