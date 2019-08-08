@@ -85,7 +85,25 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
+  },
+  {
+    
+      title: 'Games offs tronesssssssssssss',
+      date: 'Dec 1st, 1855',
+      firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+            hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+            Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+  
+      secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+            hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+            hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+            hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+  
+      thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+            Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+            Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+    }
+  
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
@@ -112,3 +130,76 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+
+
+const articles = document.querySelector('.articles');
+
+
+data.forEach(datas => {
+  
+  articles.appendChild(createComp(datas.title, datas.date, datas.firstParagraph, datas.secondParagraph, datas.thirdParagraph));
+} )
+
+
+
+
+function createComp(title, date, firstParagraph, secondParagraph, thirdParagraph ){
+
+  const component = document.createElement('div');
+  const title1 = document.createElement('h2');
+  const date1 = document.createElement('h3');
+  const newFirstParagraph = document.createElement('p');
+  const newSecondParagraph = document.createElement('p');
+  const newThirdParagraph = document.createElement('p');
+  const newButton = document.createElement('span');
+
+
+
+component.appendChild(title1);
+component.appendChild(date1);
+component.appendChild(newFirstParagraph);
+component.appendChild(newSecondParagraph);
+component.appendChild(newThirdParagraph);
+component.appendChild(newButton);
+
+component.classList.add('article')
+title1.classList.add('h2')
+date1.classList.add('date')
+newButton.classList.add('expandButton')
+
+
+
+title1.textContent = title;
+date1.textContent = date;
+newFirstParagraph.textContent = firstParagraph;
+newSecondParagraph.textContent = secondParagraph;
+newThirdParagraph.textContent = thirdParagraph;
+
+newButton.textContent = 'LARGE BUTTON';
+
+
+
+newButton.addEventListener('click', (x) => {
+  
+  component.classList.toggle('article-open');
+ 
+  
+  
+
+})
+
+
+
+return component
+
+
+
+
+
+
+
+}
+
+
+
+
